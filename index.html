@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricia Torres</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-light text-white" href="#">Patricia Torres</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link " href="#aboutMe">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- search bar -->
+            <form class="d-flex my-2">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary mx-2" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="p-5 text-center bg-image" id="hero" style="background-image: url('images/pastel\ purple.jpg'); height: 45em;" >
+        <div class="d-flex flex-lg-row-reverse justify-content-center align-items-center">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#popup">
+                        <img src="images/tricia.png" id="profile" class="d-block mx-lg-auto img-fluid rounded-circle img-thumbnail">
+                    </div>
+                </div>
+                <!-- popup modal -->
+                <div class="modal fade" id="popup">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <img src="images/tricia.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h1 class=" fw-bold mb-3">Patricia Torres</h1>
+                    <div class="d-grid gap-2 d-md-flex justify-content-center">
+
+                        <a href="files/PatriciaTorres.pdf" download class="text-decoration-none text-primary">
+                            <button type="button" class="btn btn-outline-primary">
+                                CV
+                            </button>
+                        </a>
+                        
+
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#modal2">
+                            Email me
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modalLabel">Send an email</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="inputEmail1" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                          </div>
+
+                                        <div class="mb-3">
+                                            <label for="validationTextarea" class="form-label">Message</label>
+                                            <textarea class="form-control" id="validationTextarea" placeholder="Write enquiry here" required></textarea>
+                                            <div class="invalid-feedback">
+                                              Write enquiry here.
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="sentMessage" onclick="sentMessage()">Send</button>
+                                    </div>
+                                    <!--Toast-->
+                                    <div class="toast-container position-fixed p-3">
+                                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                          <div class="toast-header">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill text-danger" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                                              </svg>
+                                            <strong class="me-auto px-1">Patricia Torres</strong>
+                                            <small>5 seconds ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                          </div>
+                                          <div class="toast-body">
+                                            Email has been sent!
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="aboutMe" class="topics p-5 m-2">
+
+        <h3 class="text-center">About Me</h3>
+
+        <p class="text-center">I am currently doing a bachelor's degree in Computing with Software Development and I'm in my fourth year of this course. I am extremely passionate in learning about new 
+            upcoming tehcnologies and how it improves the lives or makes it much easier for different people based on their daily routine. I am a punctual student who takes my studies seriously and 
+            striving to improve my skills on programming and work ethics. Below are a list of my hobbies that sums up the person I am today.
+        </p>
+        <br>
+        <div class="pb-2">
+            <a href="https://www.tallaghttaekwon-do.com"><img src="images/Taekwando.png" class="float-end img-fluid rounded ms-4 imageHobby" width="400" height="400" alt="...">
+            </a>
+            <h5 class="text-dark">Taekwando</h5>
+            <p>I started learning Taekwando since I was 9 years old since a family friend of mine, who was way much older than me, recommended my parents to enrol
+                me into the same Taekwando school she was in while also influencing me to learn some self defence at a young age since I was always the target of school bullying.
+                I continued doing Taekwando until I was halfway through grade 4 since I was having difficulties balancing my training and studying for my tests in school so I decided to quit
+                after only acheiving a yellow belt in Taekwando however, I will be forever grateful for the lessons my instructor taught me and learned that I should only use self defence when
+                necessary. <span class="fw-bold">Click on image to visit St Mark's Taekwando school website</span>
+            </p>
+        </div>
+        
+        <br><br>
+        <div class="mt-5 pb-3">
+            <div  data-bs-toggle="modal" data-bs-target="#popup2">
+            <img src="images/Drawing.jpg" class="float-start img-fluid rounded me-2 imageHobby" width="350" height=300" alt="...">
+            </div>
+            <h5 class="text-end">Drawing</h5>
+            <p class="text-end">I started drawing at a young age since I was very artistic growing up since I also loved to sing and dance as a kid. My parents would encourage me to continue
+                practicing my drawing skills as I grew older once I entered secondary school and chose to do Art as one of my Junior Cert and Leaving Cert subjects. I was not always the best artist
+                but my teacher taught me how to improve my shading techniques and how to make my drawings look more realistic. I would sometimes compare my art to the other students which slightly 
+                made me feel insecure about my art talent but I still continued to do my best in making such wonderful masterpieces for my final art project. My drawing even landed in the front page 
+                of the School Yearbook for graduation.
+            </p>
+        </div>
+        <div class="modal fade" id="popup2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <img src="images/Drawing.jpg" alt="" height="500em" width="600em">
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="mt-3 p-3">
+            <h5>Gaming</h5>
+            <p>
+                I played video games ever since I was a young kid who was lucky enough to be gifted a Nintendo 2ds gaming console at the age of seven.
+                I had so many games on my gaming console such as Super Mario, Cooking Mama, Sonic and much more games that my parents found in stores
+                during that time period. I also had a Wii gaming console in the living room of my old house where I would constantly play Wii Sports
+                and compete against my family members. As I grew older, it was more difficult to find the right time to game since I was busy with studying
+                but right now, I basically use my phone or Nintendo switch to game on the weekends with friends.
+            </p>
+            <div class="pacman">
+                <div class="pupil"></div>
+                <div class="pacmanmouth"></div>
+            </div>
+           
+        </div>
+    
+    </section>
+
+    <section id="education" class="topics p-5 m-3">
+
+        <h3 class="text-center">Education</h3>
+
+        <br> 
+        <div class="d-flex justify-content-center">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class="btn btn-outline-secondary active tab" id="v-pills-2024" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Year 4</button>
+              <button class="btn btn-outline-secondary tab" id="v-pills-2023" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Year 3</button>
+              <button class="btn btn-outline-secondary tab" id="v-pills-2022" data-bs-toggle="pill" data-bs-target="#v-pills-disabled" type="button" role="tab" aria-controls="v-pills-2022" aria-selected="true" >Year 2</button>
+              <button class="btn btn-outline-secondary tab" id="v-pills-2021" data-bs-toggle="pill" data-bs-target="#v-pills-year1" type="button" role="tab" aria-controls="v-pills-2021" aria-selected="true" >Year 1</button>
+            </div>
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane  show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-2024" tabindex="0">
+                <h4>GPA: N/A</h4>
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                          <th scope="col" colspan="4">Module</th>
+                          <th scope="col">Grade</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4">Project</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td colspan="4">Interactive media design</td>
+                            <td >N/A</td>
+                          </tr>
+                          <tr>
+                            <td colspan="4">Information Management</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td colspan="4">Applied Machine Learning</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td colspan="4">Enterpise App Development </td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td colspan="4">Enterpise Performance Arch</td>
+                            <td>N/A</td>
+                          </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div class="tab-pane " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-2023" tabindex="0">
+                <h4>GPA: 2.38</h4>
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="4">Module</th>
+                        <th scope="col">Grade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td colspan="4">Cloud Service and Distributed Computing</td>
+                          <td>C</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Operating Systems</td>
+                          <td>D</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Data structures & Algorthms</td>
+                          <td>B</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Big Data Technologies</td>
+                          <td>B</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Server-side Web Development</td>
+                          <td>C</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">Innovation & Entrepreneurship</td>
+                            <td>B-</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="tab-pane" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-2022" tabindex="0">
+                <h4>GPA: 3.63</h4>
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="4">Module</th>
+                        <th scope="col">Grade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td colspan="4">Client side web developemnt</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Discrete Maths 2</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Advanced Database Technologies</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Social Media Communications</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Software Quality Assurance & Testing</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Software Development 3</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">German 4</td>
+                          <td>B</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Database Admin and Analysis</td>
+                          <td>B</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Management Science</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">German 3</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Project</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td colspan="4">Software Development 4</td>
+                          <td>B+</td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+             
+              <div class="tab-pane" id="v-pills-year1" role="tabpanel" aria-labelledby="v-pills-2021" tabindex="0">
+                <h4>GPA: 3.56</h4>
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">Module</th>
+                        <th scope="col">Grade</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Software Development 2</td>
+                            <td>B+</td>
+                          </tr>
+                        <tr>
+                          <td>Critical Skills development</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td>Discrete Maths</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td>German</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td>Visual Design & User Experience</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td>Computer Architecture</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td>Database Fundamentals</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td>Statistics</td>
+                          <td>A</td>
+                        </tr>
+                        <tr>
+                          <td>German 2</td>
+                          <td>B+</td>
+                        </tr>
+                        <tr>
+                          <td>System Analysis</td>
+                          <td>B-</td>
+                        </tr>
+                        <tr>
+                          <td>Operating Systems</td>
+                          <td>B</td>
+                        </tr>
+                        <tr>
+                          <td>Software Development</td>
+                          <td>B+</td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+
+            </div>
+          </div>
+
+    </section>
+
+    <section id="experience" class="topics p-5 m-3">
+
+        <h3 class="text-center">Work Experience</h3>
+
+        <div class="container py-5">
+            <div class="main-timeline-2">
+              <div class="timeline-2 left-2">
+                <div class="card">
+                  <img src="images/Department of Social Protection.jpg" class="card-img-top"
+                    alt="Responsive image">
+                  <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4">Department of Social Protection</h4>
+                    <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i>Jan - Jul 2024</p>
+                    <p class="mb-0">
+                        The Department of Social Protection is a government organization focused on promoting social inclusion and providing income support, employment services, and other citizen advisory programs.
+                        I worked as an Executive Officer intern at the company for six months. We did standup meetings, created Power Bi reports that connected to the SQL server of the department to collect the data. 
+                        I also worked on some projects in the company which includes developing a file system to fix a table set of people's data including their PPSN's, employee ID and name using Python to
+                        export it into a text file from an excel sheet. <button class="btn btn-primary"><a href="https://www.gov.ie/en/organisation/department-of-social-protection/" class="text-decoration-none text-white">View Website</a></button>
+                    </p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-2 right-2">
+                <div class="card">
+                  <img src="images/tud main building.jpg" class="card-img-top"
+                    alt="Responsive image">
+                  <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4">Open Day TUD Tallaght</h4>
+                    <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i> 2023</p>
+                    <p class="mb-0">
+                        I talked with multiple secondary school students about my course. I gave advice to those who had no experience in learning any programming languages or
+                        coding. I also explained about the benefits of learning a foreign language along with the Computing
+                        course to new students who aren't fully fluent in English. We also had few lecturers in our booth to help advise people to choose this course.
+                        <button class="btn btn-primary">
+                            <a href="https://www.tudublin.ie/study/undergraduate/cao/?gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiA65m7BhAwEiwAAgu4JJbWlZf5xuncryjMISj-4UdQcI9rC3ASsIY_e1l7hzfgV089EX1lyxoCoaMQAvD_BwE" class="text-decoration-none text-white">Visit Site</a>
+                        </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="timeline-2 left-2">
+                <div class="card">
+                  <img src="images/kiltipper woods.jpg" class="card-img-top"
+                    alt="Responsive image">
+                  <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4">Kiltipper Woods Care Centre</h4>
+                    <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i>Nov 2022 - Jan 2023</p>
+                    <p class="mb-0">
+                        Dealt directly with the customers, both in person and via phone and e-mail. As part of my role, I
+                        booked appointments for each customer and gave them directions to any unit in the care Centre.
+                        I also scanned and filed documents that I was tasked with by the staff. 
+                        <button class="btn btn-primary">
+                            <a href="https://ie.linkedin.com/company/kiltipper-woods-care-centre" class="text-decoration-none text-white">Visit LinkedIn page</a>
+                        </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section id="skills" class="topics p-5 m-3">
+
+        <h3 class="text-center">Skills</h3>
+
+        <p>Python</p>
+        <div class="progress progress-striped active" > 
+            <div class="progress-bar progress-bar-success" id="progressBar" style="width: 85%;" > 
+                85%
+            </div> 
+        </div>
+        
+        <p>Website design using HTML, CSS, Bootstrap and Javascript</p>
+        <div class="progress progress-striped active" > 
+            <div class="progress-bar progress-bar-success" id="progressBar" style="width: 90%;"> 
+                90%
+            </div> 
+        </div> 
+
+        <p>Java</p>
+        <div class="progress progress-striped active"> 
+            <div class="progress-bar progress-bar-success" id="progressBar" style="width: 70%;" > 
+                70%
+            </div> 
+        </div> 
+
+        <p>SQL</p>
+        <div class="progress progress-striped active"> 
+            <div class="progress-bar progress-bar-success" id="progressBar" style="width: 85%;" > 
+                85%
+            </div> 
+        </div>
+
+        <p>Analyse data using Excel</p>
+        <div class="progress progress-striped active"> 
+            <div class="progress-bar progress-bar-success" id="progressBar" style="width: 80%;" > 
+                80%
+            </div> 
+        </div>
+
+        <p>C#</p>
+        <div class="progress progress-striped active"> 
+            <div class="progress-bar progress-bar-success" id="progressBar" style="width: 75%;" > 
+                75%
+            </div> 
+        </div>
+
+    </section>
+
+    <section id="projects" class="topics p-5 m-3">
+        <h4 class="text-center">Projects</h4>
+
+        <div class="accordion mt-4" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Furniture Store Website Project
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <img src="images/furniture website.png" alt="" width="500" class="img-fluid mx-auto d-block">
+                  <p class="pt-3">This was my second year project. I created a website for a furniture store using Django, Python, HTML, CSS, Bootstrap and Javascript. It includes an add to cart,
+                    favourite item, compare items and advanced search functionalities.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Amiibo Blazor App Project
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <a href="https://github.com/PatriciaTorres24/AmiiboApp">
+                        <img src="images/Amiibo website.png" alt="" width="500" class="img-fluid mx-auto d-block">
+                    </a>
+                    <p class="pt-3">This is my project for Enterprise App Development in 4th year. It is a blazor app that includes razor pages to display a list of Nintendo amiibo figurines
+                        using a free API. It has advanced search filters and search functionality. <span class="fw-bold">Click image to learn more</span>
+                    </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  CSS Shapes project
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <a href="https://github.com/PatriciaTorres24/shapesProj"><img src="images/shapes website.png" width="500" class="img-fluid mx-auto d-block" alt=""></a>
+                    <p class="pt-3">This is a personal project that I created at the start of 2nd year. It uses HTML and CSS to style the webpage while also adding
+                        some animations to the shapes in the main page of the website when you hover over the objects with your mouse. <span class="fw-bold">Click image to learn more</span>
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section id="contact" class="topics p-5 m-3">
+        <h4 class="text-center">Contact Me</h4>
+
+        <form id="contactForm">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#emailRequest">Send</button>
+
+            <div class="mt-3">
+                <a href="https://github.com/PatriciaTorres24" class="text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-github mx-2" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                      </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/patriciashenzentorres/" class="text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-linkedin mx-2" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                      </svg>
+                </a>
+                <a href="mailto:triciashenzen@gmail.com.com" class="text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-envelope-fill mx-2" viewBox="0 0 16 16">
+                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                      </svg>
+                </a>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="emailRequest" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="Label">Success!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Your email has been sent. You will receive a reply soon.
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </form>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="style/myScript.js"></script>
+</body>
+
+</html>
